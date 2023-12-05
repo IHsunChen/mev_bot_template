@@ -1,5 +1,9 @@
 use ethers::prelude::{k256::ecdsa::SigningKey, *};
 
+pub fn address(address: &str) -> Address {
+  address.parse::<Address>().unwrap()
+}
+
 pub async fn setup_signer(
   provider: Provider<Http>,
 ) -> SignerMiddleware<Provider<Http>, Wallet<SigningKey>> {

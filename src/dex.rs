@@ -36,4 +36,9 @@ impl Dex {
         let decoded = UniV2RouterCalls::decode(&calldata).unwrap();
         println!("Decoded dex tx: {:?}", decoded);
     }
+
+    pub async fn get_pairs(&self) {
+      println!("Calling allPairLength from {}", self.factory_address);
+      println!("{:?}", self.factory.all_pairs_length().await)
+    }
 }
